@@ -1,0 +1,46 @@
+/* New, standalone styling for auth screens */
+:root {
+  --bg: #0b0b0c;
+  --panel: #111113;
+  --border: #232327;
+  --muted: #a1a1aa;
+  --text: #e5e7eb;
+  --brand: #d9f99d;
+  --primary: #3b82f6;
+  --primary-600: #2563eb;
+  --accent: #ef4444;
+  --accent-600: #dc2626;
+}
+
+body { background: var(--bg); color: var(--text); }
+
+.auth-shell { max-width: 1200px; margin: 48px auto 32px; padding: 0 20px; }
+.auth-title { font-family: "Cormorant Garamond", serif; font-size: 64px; text-align: center; margin: 10px 0 26px; letter-spacing: .5px; }
+
+.auth-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 28px; min-height: 380px; box-shadow: 0 14px 40px rgba(0,0,0,.4); }
+.panel h3 { margin: 0 0 12px; font-weight: 700; font-size: 20px; }
+
+.form { display: grid; gap: 14px; }
+.field { display: grid; gap: 8px; }
+.field span { font-size: 14px; color: var(--muted); }
+.field input { background: #0e0e10; color: var(--text); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 16px; transition: border-color .15s ease, box-shadow .15s ease, transform .1s ease; }
+.field input:hover { border-color: #3a3a40; }
+.field input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59,130,246,.15); transform: translateY(-1px); }
+
+.button { display:inline-flex; align-items:center; justify-content:center; gap:10px; border-radius: 12px; padding: 12px 18px; font-weight: 700; font-size: 15px; border: 1px solid var(--border); background: #18181b; color: var(--text); cursor: pointer; transition: filter .15s ease, transform .1s ease; text-decoration: none; }
+.button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.button.primary { background: var(--primary); border-color: var(--primary-600); color: white; }
+.button.primary:hover { filter: brightness(1.05); }
+.button.accent { background: var(--accent); border-color: var(--accent-600); color: white; }
+.button.subtle { background: transparent; }
+
+.actions { text-align: center; margin-top: 12px; }
+
+@media (max-width: 900px) {
+  .auth-panels { grid-template-columns: 1fr; }
+  .auth-title { font-size: 48px; }
+  .panel { min-height: unset; padding: 22px; }
+  .button { width: 100%; }
+}
+

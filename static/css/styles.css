@@ -1,0 +1,101 @@
+.how-hero { position: relative; padding: 24px 0 40px; }
+.how-hero:before { content:""; position:absolute; inset:-40px 0 0; background: url('/static/img/how-bg.jpg') center/cover no-repeat; opacity: 0.25; filter: blur(2px); }
+.how-hero-inner { position: relative; }
+body { font-family: Inter, system-ui, Arial, sans-serif; background: #0a0a0a; color: #0a0a0a; margin:0; padding:0; }
+.site-header { position: sticky; top:0; z-index: 50; display:flex; align-items:center; justify-content: space-between; padding: 10px 16px; background: rgba(10,10,10,0.85); border-bottom: 1px solid #1a1a1a; backdrop-filter: blur(6px); }
+.brand { font-family: "Cormorant Garamond", serif; font-size: 24px; color: #d9f99d; }
+.main-nav { display:flex; gap: 16px; }
+.nav-link { color:#ffffff; text-decoration:none; opacity:0.9; }
+.nav-link:hover { opacity:1; }
+.btn-accent { background:#ef4444; color:#ffffff; border: 1px solid #ef4444; }
+.page-wrap { padding: 32px 16px 64px; max-width: 1200px; margin: 0 auto; }
+.hero { position: relative; padding-top: 48px; }
+.hero:before { content:""; position:absolute; inset:-40px 0 0; background: url('/static/img/hero-bg.jpg') center/cover no-repeat; opacity: 0.25; filter: blur(2px); }
+.hero > * { position: relative; }
+.search-composite { display:flex; gap:8px; align-items:center; justify-content:center; margin: 12px auto 24px; max-width: 760px; }
+.search-input { background: #ffffff; color:#0a0a0a; border:1px solid #e5e7eb; }
+.hero-title { font-family: "Cormorant Garamond", serif; font-size: 72px; text-align:center; margin: 32px 0 8px; font-weight: 600; letter-spacing: 1px; }
+.hero-sub { max-width: 900px; margin: 0 auto 32px; text-align: center; color: #0a0a0a; opacity:.85; font-style: italic; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 980px; margin: 24px auto 32px; }
+.card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; text-align: center; transform: rotate(-2deg); color:#0a0a0a; }
+.card:nth-child(2) { transform: rotate(0deg); }
+.card:nth-child(3) { transform: rotate(2deg); }
+.icon { font-size: 28px; margin-bottom: 6px; }
+.center { text-align:center; }
+
+/* Subtle entrance animations */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.step-active .card, .step-active .chips .chip, .step-active .recipe-card, .step-active .input-panel { animation: fadeUp 400ms ease both; }
+.step-active .card:nth-child(2) { animation-delay: 60ms; }
+.step-active .card:nth-child(3) { animation-delay: 120ms; }
+.step-active .chips .chip { animation-delay: 80ms; }
+.step-active .recipe-card { animation-delay: 100ms; }
+
+.step { display: none; }
+.step-active { display: block; }
+.step-title { font-family: "Cormorant Garamond", serif; font-size: 48px; text-align: center; margin: 32px 0 8px; font-weight: 600; }
+.step-sub { text-align: center; color: #ffffff; font-style: italic; max-width: 1000px; margin: 0 auto 20px; }
+
+.input { width: 100%; padding: 14px 16px; border-radius: 10px; border: 1px solid #e5e7eb; background: #ffffff; color:#0a0a0a; }
+.input::placeholder { color: #0a0a0a; opacity: 0.6; }
+.input-panel { display:flex; gap: 10px; align-items: center; background:#ffffff; border:1px solid #e5e7eb; border-radius: 12px; padding: 8px; max-width: 1100px; margin: 16px auto; }
+.btn { background: #ffffff; color: #0a0a0a; border: 1px solid #e5e7eb; padding: 10px 16px; border-radius: 8px; cursor:pointer; font-weight: 600; }
+.btn:hover { filter: brightness(1.15); }
+.btn-secondary { background: #ffffff; color: #0a0a0a; border: 1px solid #e5e7eb; }
+.btn-icon { width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; background:#ffffff; color:#0a0a0a; cursor:pointer; font-size: 18px; }
+.nav { display:flex; justify-content: space-between; gap: 12px; max-width: 1100px; margin: 20px auto; }
+
+.quick { max-width: 1100px; margin: 12px auto 0; color:#0a0a0a; }
+.chips { display:flex; flex-wrap:wrap; gap: 10px; margin-top: 10px; }
+.chip { padding: 6px 10px; background:#ffffff; border:1px solid #e5e7eb; border-radius: 999px; cursor:pointer; color:#0a0a0a; font-weight: 500; transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease; }
+.chip:hover { background:#f8fafc; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+.chips-large .chip { padding: 8px 12px; }
+
+.review-grid { display:grid; grid-template-columns: 1fr 1fr 220px; gap: 16px; max-width: 1100px; margin: 16px auto; align-items: start; }
+.review-card { background:#ffffff; border:1px solid #e5e7eb; border-radius: 12px; padding: 14px; min-height: 160px; color:#0a0a0a; }
+.review-title { font-weight: 600; margin-bottom: 10px; }
+.review-total { background:#ffffff; border:1px solid #e5e7eb; border-radius: 12px; padding: 14px; display:flex; flex-direction: column; align-items:center; justify-content:center; height: 160px; color:#0a0a0a; }
+.total-num { font-family: "Cormorant Garamond", serif; font-size: 40px; margin-top: 10px; }
+
+.results-head { text-align:center; max-width: 1000px; margin: 0 auto 16px; }
+.recipes { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1200px; margin: 0 auto; }
+.recipe-card { background:#ffffff; border:1px solid #e5e7eb; border-radius: 16px; overflow: hidden; transition: transform 160ms ease, box-shadow 160ms ease; }
+.recipe-card { position: relative; }
+.recipe-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.5); }
+.recipe-img { width: 100%; height: 220px; object-fit: cover; display:block; }
+.recipe-body { padding: 12px 14px 16px; }
+.recipe-title { font-family: "Cormorant Garamond", serif; font-size: 22px; margin: 8px 0; }
+.recipe-desc { color:#0a0a0a; font-size: 14px; }
+.auth-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 800px; margin: 0 auto; }
+.auth-card { background:#ffffff; border:1px solid #e5e7eb; border-radius: 12px; padding: 14px; display:flex; flex-direction: column; gap: 10px; color:#0a0a0a; }
+@media (max-width: 900px) { .auth-grid { grid-template-columns: 1fr; } }
+
+/* Detail view */
+.detail-grid { display:grid; grid-template-columns: 1.2fr 1fr; gap: 24px; max-width: 1200px; margin: 16px auto; align-items: start; }
+.detail-image img { width: 100%; height: 520px; object-fit: cover; border-radius: 16px; border:1px solid #e5e7eb; }
+.detail-content h3 { font-family: "Cormorant Garamond", serif; margin: 16px 0 8px; }
+.detail-block { background:#ffffff; border:1px solid #e5e7eb; border-radius: 12px; padding: 12px; line-height: 1.6; font-style: italic; color:#0a0a0a; }
+.match-box { background:#ffffff; border:1px solid #e5e7eb; border-radius: 12px; padding: 12px; margin: 8px 0 12px; color:#0a0a0a; }
+.match-row { display:flex; justify-content: space-between; margin-bottom: 8px; }
+.match-bar { width: 100%; height: 8px; background:#f1f5f9; border-radius: 999px; border:1px solid #e5e7eb; overflow: hidden; }
+.match-bar > div { height: 100%; width: 0%; background: linear-gradient(90deg, #4ade80, #22d3ee); }
+
+@media (max-width: 900px) {
+  .cards { grid-template-columns: 1fr; }
+  .review-grid { grid-template-columns: 1fr; }
+  .recipes { grid-template-columns: 1fr; }
+}
+
+/* Match percentage badge on recipe cards */
+.match-badge { position: absolute; top: 10px; right: 10px; background: linear-gradient(90deg,#111,#444); color: #fff; padding: 6px 10px; border-radius: 999px; font-weight:700; font-size:12px; box-shadow: 0 6px 18px rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.06); }
+
+/* How it works */
+.how-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1100px; margin: 0 auto 16px; }
+.how-card { background:#ffffff; border:1px solid #e5e7eb; border-radius: 14px; padding: 16px; position: relative; overflow: hidden; color:#0a0a0a; }
+.how-card:hover { box-shadow: 0 10px 24px rgba(0,0,0,0.45); transform: translateY(-2px); transition: all 160ms ease; }
+.how-num { position:absolute; top: -12px; right: 12px; font-size: 56px; font-family: "Cormorant Garamond", serif; color: rgba(255,255,255,0.06); }
+.how-stack { max-width: 900px; margin: 0 auto; background:#ffffff; border:1px solid #e5e7eb; border-radius: 12px; padding: 12px 14px; line-height: 1.6; color:#0a0a0a; }
+.how-timeline { display:flex; justify-content: space-between; gap: 10px; max-width: 900px; margin: 8px auto 18px; }
+.how-timeline span { flex: 1 1 auto; height: 6px; background: linear-gradient(90deg, #22d3ee, #4ade80); border-radius: 999px; opacity: 0.6; }
+@media (max-width: 900px) { .how-grid { grid-template-columns: 1fr; } }

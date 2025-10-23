@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+  <h2 class="step-title" style="text-align:center;">Dashboard</h2>
+  <div class="review-grid" style="margin-top: 8px;">
+    <div class="review-card">
+      <div class="review-title">Welcome</div>
+      <p>You are logged in as <strong>{{ user_email }}</strong>.</p>
+      <p class="recipe-desc">Use the navigation to explore recipes or try the search on the home page.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-title">Quick Actions</div>
+      <div style="display:flex; gap: 10px; flex-wrap: wrap;">
+        <a class="btn" href="/">Search Recipes</a>
+        <form method="post" action="/logout">
+          <button class="btn btn-secondary" type="submit">Log out</button>
+        </form>
+      </div>
+    </div>
+    <div class="review-total">
+      <div>Account</div>
+      <div class="total-num">Active</div>
+    </div>
+  </div>
+{% endblock %}
+

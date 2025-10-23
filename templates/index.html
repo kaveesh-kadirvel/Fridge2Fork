@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Fridge 2 Fork</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Fridge2Fork</a>
+      <nav class="main-nav">
+        <a href="#" class="nav-link" data-next="step-how">How It Works</a>
+        <a href="#" class="nav-link" id="nav-all-recipes">All Recipes (A–Z)</a>
+      </nav>
+      
+    </header>
+    <div class="page-wrap">
+      <section id="step-landing" class="step step-active hero new-hero">
+        <div class="hero-inner">
+          <h1 class="hero-title">Fridge 2 Fork</h1>
+          <p class="hero-sub">Transform your available ingredients into extraordinary recipes. Tell us what you have, and we'll create culinary magic.</p>
+          <!-- search removed per request -->
+
+          <div class="feature-cards">
+            <div class="feature-card tilt-left">
+              <div class="feature-icon">�</div>
+              <h3>Input Ingredients</h3>
+              <p>Add your available spices and vegetables to our intelligent system</p>
+            </div>
+            <div class="feature-card tilt-center">
+              <div class="feature-icon">✨</div>
+              <h3>Smart Matching</h3>
+              <p>Our algorithm finds recipes with the highest ingredient match percentage</p>
+            </div>
+            <div class="feature-card tilt-right">
+              <div class="feature-icon">�‍🍳</div>
+              <h3>Perfect Recipes</h3>
+              <p>Discover personalized recipes that make the most of what you have</p>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <button class="btn btn-primary" data-next="step-spices">Start Creating</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="step-how" class="step how-hero">
+        <div class="how-hero-inner">
+          <h2 class="step-title">How It Works</h2>
+          <p class="step-sub">Fridge2Fork turns pantry chaos into dinner plans using explainable matching and a curated recipe dataset.</p>
+
+          <div class="how-grid">
+            <div class="how-card">
+              <div class="how-num">1</div>
+              <h3>Collect</h3>
+              <p>Enter ingredients you have. We normalize and tokenize quickly for speed and clarity.</p>
+            </div>
+            <div class="how-card">
+              <div class="how-num">2</div>
+              <h3>Match</h3>
+              <p>We compute overlap between your tokens and each recipe. A clear match % shows why a recipe ranks.</p>
+            </div>
+            <div class="how-card">
+              <div class="how-num">3</div>
+              <h3>Present</h3>
+              <p>We present beautiful cards with images and full steps. Click any card for detailed view.</p>
+            </div>
+          </div>
+
+          <div class="how-timeline">
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="how-stack">
+            <div><b>Backend</b>: Python Flask APIs: `/api/recipes`, `/api/recipe/:id`.</div>
+            <div><b>Dataset</b>: CSV with titles, ingredients, instructions, image names.</div>
+            <div><b>Ranking</b>: Tokenization + overlap score → match percentage.</div>
+            <div><b>Images</b>: Local `static/img` or semantic Unsplash Featured fallback.</div>
+            <div><b>Frontend</b>: Vanilla JS + semantic HTML + custom CSS.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="step-spices" class="step">
+        <h2 class="step-title">What Spices Do You Have?</h2>
+        <p class="step-sub">Add all the spices available in your kitchen. Type and press Enter, or click suggestions below.</p>
+        <div class="input-panel">
+          <input id="spice-input" class="input" placeholder="Type a spice and press Enter" />
+          <button id="add-spice" class="btn-icon">+</button>
+        </div>
+        <div class="quick">
+          <span>Your spices:</span>
+          <div class="chips" id="spice-selected"></div>
+        </div>
+        <div class="quick">
+          <span>Quick add common spices:</span>
+          <div class="chips" id="spice-quick"></div>
+        </div>
+        <div class="nav">
+          <button class="btn btn-secondary" data-prev="step-landing">Back</button>
+          <button class="btn" data-next="step-veggies">Next: Vegetables</button>
+        </div>
+      </section>
+
+      <section id="step-veggies" class="step">
+        <h2 class="step-title">What Vegetables Do You Have?</h2>
+        <p class="step-sub">Add all the vegetables available in your kitchen. Fresh, frozen, or canned - we'll find the perfect recipes.</p>
+        <div class="input-panel">
+          <input id="veg-input" class="input" placeholder="Type a vegetable and press Enter" />
+          <button id="add-veg" class="btn-icon">+</button>
+        </div>
+        <div class="quick">
+          <span>Your vegetables:</span>
+          <div class="chips" id="veg-selected"></div>
+        </div>
+        <div class="quick">
+          <span>Quick add common vegetables:</span>
+          <div class="chips" id="veg-quick"></div>
+        </div>
+        <div class="nav">
+          <button class="btn btn-secondary" data-prev="step-spices">Back</button>
+          <button class="btn" data-next="step-review">Review & Generate</button>
+        </div>
+      </section>
+
+      <section id="step-review" class="step">
+        <h2 class="step-title">Ready to Cook?</h2>
+        <p class="step-sub">Review your ingredients and generate personalized recipes that make the most of what you have.</p>
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="review-title">Your Spices (<span id="spice-count">0</span>)</div>
+            <div class="chips chips-large" id="spice-list"></div>
+          </div>
+          <div class="review-card">
+            <div class="review-title">Your Vegetables (<span id="veg-count">0</span>)</div>
+            <div class="chips chips-large" id="veg-list"></div>
+          </div>
+          <div class="review-total">
+            <div>Total Ingredients</div>
+            <div class="total-num" id="total-count">0</div>
+          </div>
+        </div>
+        <div class="nav">
+          <button class="btn btn-secondary" data-prev="step-veggies">Back</button>
+          <button class="btn" id="generate">Generate Recipes</button>
+        </div>
+      </section>
+
+      <section id="step-results" class="step">
+        <div class="results-head">
+          <button class="btn btn-secondary" id="restart">Start Over</button>
+          <h2 class="step-title">Your Recipe Collection</h2>
+          <p class="step-sub">Recipes ranked by ingredient match percentage</p>
+          <div class="chips" id="query-chips"></div>
+        </div>
+        <div class="recipes" id="recipes"></div>
+      </section>
+
+      <section id="step-detail" class="step">
+        <button class="btn btn-secondary" id="back-to-results">Back to Results</button>
+        <div class="detail-grid">
+          <div class="detail-image">
+            <img id="detail-img" alt="Recipe image" />
+          </div>
+          <div class="detail-content">
+            <h2 class="step-title" id="detail-title"></h2>
+            <p class="step-sub" id="detail-sub"></p>
+            <div class="match-box">
+              <div class="match-row">
+                <span>Ingredient Match</span>
+                <span id="detail-match-pct"></span>
+              </div>
+              <div class="match-bar"><div id="detail-match-fill"></div></div>
+              <div class="chips" id="detail-matched"></div>
+            </div>
+            <h3>Ingredients</h3>
+            <div class="detail-block" id="detail-ingredients"></div>
+            <h3>Instructions</h3>
+            <div class="detail-block" id="detail-instructions"></div>
+          </div>
+        </div>
+      </section>
+
+      
+    </div>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>

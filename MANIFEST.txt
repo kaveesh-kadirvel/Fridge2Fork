@@ -1,0 +1,5 @@
+Copied files from original upload:
+static/js/server.js
+static/js/vite.config.js
+templates/index.html
+static/css/styles.css

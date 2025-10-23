@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Spice Savor{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="stylesheet" href="/static/css/theme.css" />
+  {% block extra_head %}{% endblock %}
+  <style>
+    .container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+    .flash { margin: 10px auto; padding: 10px 12px; border-radius: 10px; border:1px solid #2a2a2a; max-width: 800px; }
+    .flash.error { background: #1a0f0f; color: #fecaca; border-color:#7f1d1d; }
+    .flash.success { background: #0f1a12; color: #bbf7d0; border-color:#14532d; }
+    .header { display:flex; justify-content: space-between; align-items:center; padding: 10px 16px; background: rgba(10,10,10,0.85); border-bottom:1px solid #1a1a1a; backdrop-filter: blur(6px); position: sticky; top:0; z-index:50; }
+  .brand { font-family: "Cormorant Garamond", serif; font-size: 22px; color:#ffffff; text-decoration:none; font-weight:700; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="/">Fridge2Fork</a>
+    <nav>
+      {% if session.user_email %}
+        <form method="post" action="/logout" style="display:inline;">
+          <button class="btn btn-secondary">Log out</button>
+        </form>
+      {% else %}
+        <a class="btn" href="/auth">Log In / Sign Up</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="container">
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
+

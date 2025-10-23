@@ -1,0 +1,55 @@
+/* Reference-wide theme: black canvas, white content surfaces, serif headings */
+:root {
+  --canvas: #000000;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+  --border: #e5e7eb;
+  --text: #0a0a0a;
+  --muted: #475569;
+  --brand: #d9f99d;
+}
+
+/* Base */
+body { background: var(--canvas); color: var(--text); }
+.site-header { background: rgba(0,0,0,.85); border-bottom:1px solid #1a1a1a; }
+.brand { color: var(--brand); }
+
+/* Inputs and plus button (global) */
+.input { background: var(--surface); color: var(--text); border:1px solid var(--border); }
+.input::placeholder { color: var(--text); opacity:.55; }
+.input-panel { background: var(--surface); border:1px solid var(--border); }
+.btn-icon { background: var(--surface); color: var(--text); border:1px solid var(--border); }
+
+/* Chips */
+.chip { background: var(--surface); color: var(--text); border:1px solid var(--border); }
+
+/* Cards on homepage */
+.tilt-card { background: var(--surface); color: var(--text); border:1px solid var(--border); }
+.tilt-desc { color: var(--text); opacity:.85; }
+
+/* Content text defaults inside sections */
+.page-wrap, .step, .results-head, .detail-content, .how-hero-inner { color: var(--text); }
+.step-title { color: var(--text); }
+.step-sub { color: var(--text); opacity:.8; }
+
+/* Review step cards */
+.review-card, .review-total { background: var(--surface); color: var(--text); border:1px solid var(--border); }
+.total-num { color: var(--text); }
+
+/* Recipes grid */
+.recipe-card { background: var(--surface); border:1px solid var(--border); }
+.recipe-title { color: var(--text); }
+.recipe-desc { color: var(--muted); }
+
+/* Detail view blocks */
+.detail-block, .match-box { background: var(--surface); color: var(--text); border:1px solid var(--border); }
+.match-row { color: var(--text); }
+.match-bar { background: var(--surface-muted); border-color: var(--border); }
+
+/* Buttons */
+.btn, .btn-secondary, .btn-accent { background: var(--surface); color: var(--text); border:1px solid var(--border); }
+.btn-accent { font-weight: 700; }
+
+/* Results head */
+.results-head .step-sub { color: var(--text); opacity:.9; }
+
